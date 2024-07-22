@@ -4,14 +4,12 @@
 
 <mapper namespace="kr.co.yooncheolcommunity.api.user.dao.UserDao">
 
-    <!-- 사용자 조회 쿼리 -->
-    <select id="findByUserId" parameterType="String" resultType="kr.co.yooncheolcommunity.api.model.User">
-        SELECT * FROM user WHERE user_id = #{userId}
+    <select id="findUserById" parameterType="String" resultType="kr.co.yooncheolcommunity.api.user.dto.User">
+        SELECT * FROM YOONCHEOL_COMMUNITY.TB_USER WHERE USER_ID = #{userId}
     </select>
 
-    <!-- 사용자 추가 쿼리 -->
-    <insert id="insertUser" parameterType="kr.co.yooncheolcommunity.api.model.User">
-        INSERT INTO user (user_id, password) VALUES (#{userId}, #{password})
-    </insert>
+    <select id="findUser" parameterType="Object" resultType="kr.co.yooncheolcommunity.api.user.dto.User">
+        SELECT * FROM YOONCHEOL_COMMUNITY.TB_USER WHERE USER_ID = #{userId} AND PASSWORD = #{password}
+    </select>
 
 </mapper>

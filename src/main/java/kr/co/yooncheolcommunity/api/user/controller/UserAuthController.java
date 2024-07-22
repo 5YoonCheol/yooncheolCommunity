@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
@@ -19,9 +21,10 @@ public class UserAuthController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    public String createToken(@RequestBody UserAuthRequest authRequest) {
+    public String createToken(@RequestBody UserAuthRequest authRequest) throws Exception {
         String userId = userAuthService.authenticate(authRequest.getUserId(), authRequest.getPassword());
         String token = jwtUtil.generateToken(userId);
+
         return token;
     }
 
