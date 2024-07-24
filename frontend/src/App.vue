@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <AppHeader />
+    <div id="main">
+      <AppSidebar />
+      <div id="content">
+        <router-view />
+      </div>
+    </div>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 
+import AppHeader from "@/components/Header.vue";
+import AppSidebar from "@/components/Sidebar.vue";
+import AppFooter from "@/components/Footer.vue";
+
 export default {
   name: 'App',
+  components: {AppFooter, AppSidebar, AppHeader},
 }
 </script>
 
@@ -18,6 +30,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+#main {
+  display: flex;
+}
+#content {
+  margin-left: 200px; /* Sidebar 공간 */
+  padding: 1rem;
+  width: calc(100% - 200px);
 }
 </style>
