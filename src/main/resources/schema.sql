@@ -1,6 +1,8 @@
 -- 스키마 생성 (선택 사항, 필요한 경우 사용)
 CREATE SCHEMA IF NOT EXISTS YOONCHEOL_COMMUNITY;
 
+SET SCHEMA 'YOONCHEOL_COMMUNITY';
+
 -- 사용자 테이블 생성
 CREATE TABLE IF NOT EXISTS YOONCHEOL_COMMUNITY.tb_user (
                                               user_no INT AUTO_INCREMENT PRIMARY KEY,
