@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <AppHeader />
+    <AppHeader v-if="!isLoginPage"/>
     <div id="main">
-      <AppSidebar />
+      <AppSidebar v-if="!isLoginPage"/>
       <div id="content">
         <router-view />
       </div>
     </div>
-    <AppFooter />
+    <AppFooter v-if="!isLoginPage"/>
   </div>
 </template>
 
@@ -20,6 +20,11 @@ import AppFooter from "@/components/Footer.vue";
 export default {
   name: 'App',
   components: {AppFooter, AppSidebar, AppHeader},
+  computed: {
+    isLoginPage() {
+      return this.$route.path === '/login';
+    }
+  }
 }
 </script>
 
