@@ -11,7 +11,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardService {
     private final BoardDao boardDao;
-
     public List<Board> getBoardList() {
         return boardDao.getBoardList();
     }

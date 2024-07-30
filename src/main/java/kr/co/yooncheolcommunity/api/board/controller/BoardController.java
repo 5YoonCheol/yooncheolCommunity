@@ -13,10 +13,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/board")
 public class BoardController {
-    final BoardService boardService;
+    private final BoardService boardService;
 
-    @PostMapping(value ="/get-board-list")
-    public List<Board> getBoardList(){
+    @PostMapping(value = "/get-board-list")
+    public List<Board> getBoardList() {
         return boardService.getBoardList();
     }
 }
